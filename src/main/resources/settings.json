@@ -1,0 +1,25 @@
+{
+  "number_of_shards": 5,
+  "number_of_replicas": 1,
+  "refresh_interval": "5s",
+  "analysis": {
+    "analyzer": {
+
+      "ikSearchAnalyzer": {
+        "desc": "ik细粒度",
+        "type": "custom",
+        "tokenizer": "ik_max_word",
+        "char_filter": [
+          "tsconvert"
+        ]
+      },
+
+      "ikSmartSearchAnalyzer": {
+        "desc": "ik粗粒度分词",
+        "type": "custom",
+        "tokenizer": "ik_smart",
+        "char_filter": [
+          "tsconvert"
+        ]
+      }
+}
