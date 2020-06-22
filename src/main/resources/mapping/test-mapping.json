@@ -1,0 +1,37 @@
+{
+  "properties": {
+    "voucherNo": {
+      "type": "text"
+    },
+    "equityNo": {
+      "type": "text"
+    },
+    "productNo": {
+      "type": "text"
+    },
+    "createdAt": {
+      "type": "date",
+      "format": "yyyy-MM-dd HH:mm:ss"
+    },
+    "effectiveDate": {
+      "type": "date",
+      "format": "yyyy-MM-dd HH:mm:ss"
+    },
+    "expireDate": {
+      "type": "date",
+      "format": "yyyy-MM-dd HH:mm:ss"
+    },
+    "voucherStatus": {
+      "type": "text"
+    },
+    "contractNo": {
+      "type": "text"
+    },
+    "externalRelatedId": {
+      "type": "text"
+    },
+    "voucherCategory": {
+      "type": "text"
+    }
+  }
+}
