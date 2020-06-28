@@ -23,7 +23,7 @@ public class ElasticSearchTest {
 
     @Test
     public void testAdd() throws IOException {
-       for (int i = 1111; i < 1130; i++) {
+       for (int i = 500; i <= 600; i++) {
            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
            VoucherBaseInfoDTO voucherBaseInfoDTO = new VoucherBaseInfoDTO();
            voucherBaseInfoDTO.setVoucherNo(String.valueOf(i));
@@ -34,11 +34,32 @@ public class ElasticSearchTest {
            voucherBaseInfoDTO.setUpdatedAt(sdf.format(new Date()));
            voucherBaseInfoDTO.setEffectiveDate(sdf.format(new Date()));
            voucherBaseInfoDTO.setExpireDate(sdf.format(new Date()));
-           voucherBaseInfoDTO.setVoucherStatus(String.valueOf(i));
+           voucherBaseInfoDTO.setVoucherStatus("未使用");
            voucherBaseInfoDTO.setContractNo(String.valueOf(i));
            voucherBaseInfoDTO.setExternalRelatedId(String.valueOf(i));
            voucherBaseInfoDTO.setVoucherCategory(String.valueOf(i));
-           restHighLevelClientService.add(Index.TEST.getName(), null, JSON.toJSONString(voucherBaseInfoDTO));
+           restHighLevelClientService.add(Index.TEST.getName(), "test-marketing-abc", JSON.toJSONString(voucherBaseInfoDTO));
        }
+    }
+
+    @Test
+    public void testUpdate() throws IOException {
+        for (int i = 0; i <= 10; i++) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            VoucherBaseInfoDTO voucherBaseInfoDTO = new VoucherBaseInfoDTO();
+            voucherBaseInfoDTO.setVoucherNo(String.valueOf(i));
+            voucherBaseInfoDTO.setEquityNo(String.valueOf(i));
+            voucherBaseInfoDTO.setProductNo(String.valueOf(i));
+            voucherBaseInfoDTO.setDenomination(0L);
+            voucherBaseInfoDTO.setCreatedAt(sdf.format(new Date()));
+            voucherBaseInfoDTO.setUpdatedAt(sdf.format(new Date()));
+            voucherBaseInfoDTO.setEffectiveDate(sdf.format(new Date()));
+            voucherBaseInfoDTO.setExpireDate(sdf.format(new Date()));
+            voucherBaseInfoDTO.setVoucherStatus("未使用");
+            voucherBaseInfoDTO.setContractNo(String.valueOf(i));
+            voucherBaseInfoDTO.setExternalRelatedId(String.valueOf(i));
+            voucherBaseInfoDTO.setVoucherCategory(String.valueOf(i));
+            restHighLevelClientService.update(Index.TEST.getName(), "test-marketing-update-123", JSON.toJSONString(voucherBaseInfoDTO));
+        }
     }
 }
